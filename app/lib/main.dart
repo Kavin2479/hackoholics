@@ -30,10 +30,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
         drawer: Drawer(
-          child: Container(
+          child: Material(
               color: Colors.blueAccent,
-              height: 200,
-              padding: EdgeInsets.only(top: 20),
               child: ListView(
                 children: <Widget>[
                   const SizedBox(
@@ -63,14 +61,6 @@ class MyApp extends StatelessWidget {
                     text: 'About',
                     icon: Icons.badge_outlined,
                   ),
-                  Divider(color: Colors.white, thickness: 2),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 75),
-                    child: buildMenuItem(
-                      icon: Icons.copyright_rounded,
-                      text: '2024',
-                    ),
-                  ),
                 ],
               )),
         ),
@@ -82,7 +72,8 @@ class MyApp extends StatelessWidget {
     required String text,
     required IconData icon,
   }) {
-    const color = Colors.white;
+    final color = Colors.white;
+    final hoverColor = Colors.amber;
     return ListTile(
       leading: Icon(icon, color: color),
       title: Text(text, style: TextStyle(color: color)),
@@ -90,6 +81,8 @@ class MyApp extends StatelessWidget {
         horizontal: 25.0,
         vertical: 15.0,
       ),
+      hoverColor: hoverColor,
+      onTap: () {},
     );
   }
 
